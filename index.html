@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydrogen Orbital Visualiser</title>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <h1>Hydrogen Orbital Visualiser</h1>
+      <p class="subtitle">COSC3000 Major Project — atomic orbitals in 3D</p>
+    </header>
+    <main>
+      <div id="scene-container">
+        <canvas id="scene"></canvas>
+
+        <aside id="controls">
+          <div class="control-group">
+            <label for="orbital-select">Orbital</label>
+            <select id="orbital-select"></select>
+          </div>
+          
+          <div class="control-group">
+            <label>Render mode</label>
+            <div class="toggle-row" id="mode-row">
+              <button class="mode-btn active" data-mode="isosurface">Isosurface</button>
+              <button class="mode-btn" data-mode="volume">Volume</button>
+              <button class="mode-btn" data-mode="points">Point cloud</button>
+            </div>
+          </div>
+
+          <div class="control-group" id="iso-controls">
+            <label for="iso-threshold">
+              Isosurface threshold
+              <span class="value" id="iso-threshold-value">18%</span>
+            </label>
+            <input type="range" id="iso-threshold" min="3" max="50" step="1" value="18" />
+          </div>
+
+          <div class="control-group" id="point-controls" style="display: none;">
+            <label for="sample-count">
+              Sample points
+              <span class="value" id="sample-count-value">20000</span>
+            </label>
+            <input type="range" id="sample-count" min="2000" max="80000" step="1000" value="20000" />
+          </div>
+
+          <div class="control-group">
+            <label>Slice</label>
+            <div class="toggle-row" id="slice-axis-row">
+              <button class="mode-btn" data-slice-axis="x">YZ</button>
+              <button class="mode-btn" data-slice-axis="y">XZ</button>
+              <button class="mode-btn active" data-slice-axis="z">XY</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="slice-position">
+              Slice position
+              <span class="value" id="slice-position-value">0.0</span>
+            </label>
+            <input type="range" id="slice-position" min="-1" max="1" step="0.05" value="0" />
+          </div>
+
+          <div class="info">
+            <div class="legend">
+              <span class="swatch swatch-pos"></span> positive phase
+            </div>
+            <div class="legend">
+              <span class="swatch swatch-neg"></span> negative phase
+            </div>
+            <div class="readout" id="readout">n=2, l=1, m=0</div>
+          </div>
+
+          <div class="hint">
+            Drag to rotate · scroll to zoom · right-drag to pan
+          </div>
+        </aside>
+      </div>
+
+      <div id="plot-row">
+        <div id="plot-container"></div>
+        <div id="slice-container"></div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
