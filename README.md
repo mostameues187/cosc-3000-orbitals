@@ -2,7 +2,7 @@
 
 An interactive 3D visualisation of hydrogen atomic orbitals, built for students new to quantum chemistry.
 
-**Live demo:** *(will be added after deployment)*
+Live demo: https://cosc-3000-orbitals.vercel.app/
 
 Built for COSC3000 Visualisation, Computer Graphics & Data Analysis at the University of Queensland, Semester 1, 2026.
 
